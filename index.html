@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>This Guy Travels</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content fade-in">
+    <h1>This Guy Travels</h1>
+    <p>Curated journeys. Real stories. Beautiful destinations.</p>
+    <button onclick="openBooking()">Book a Trip</button>
+  </div>
+</section>
+
+<!-- BLOG SECTION -->
+<section class="blogs">
+  <h2>Travel Stories</h2>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <!-- BLOG CARD -->
+      <div class="swiper-slide blog-card">
+        <img src="https://picsum.photos/400/300?random=1" />
+        <h3>Meghalaya Diaries</h3>
+        <p>Misty waterfalls and living root bridges.</p>
+      </div>
+
+      <div class="swiper-slide blog-card">
+        <img src="https://picsum.photos/400/300?random=2" />
+        <h3>Assam Chronicles</h3>
+        <p>Tea gardens & cultural richness.</p>
+      </div>
+
+      <div class="swiper-slide blog-card">
+        <img src="https://picsum.photos/400/300?random=3" />
+        <h3>Himachal Escape</h3>
+        <p>Snow peaks and peaceful valleys.</p>
+      </div>
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- ITINERARY SECTION -->
+<section class="itinerary">
+  <h2>Buy Our Itinerary</h2>
+  <button onclick="openItinerary()">Request Itinerary</button>
+</section>
+
+<!-- BOOKING MODAL -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <span onclick="closeModal('bookingModal')" class="close">&times;</span>
+    <h2>Book Your Trip</h2>
+    <form id="bookingForm">
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="tel" placeholder="Phone Number" required />
+      <input type="text" placeholder="Destination" required />
+      <input type="date" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<!-- ITINERARY MODAL -->
+<div class="modal" id="itineraryModal">
+  <div class="modal-content">
+    <span onclick="closeModal('itineraryModal')" class="close">&times;</span>
+    <h2>Request Itinerary</h2>
+    <form id="itineraryForm">
+      <input type="text" placeholder="Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="text" placeholder="Destination" required />
+      <button type="submit">Request</button>
+    </form>
+  </div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
