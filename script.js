@@ -106,8 +106,7 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 
   sendToSheet(data);
   closeModal("bookingModal");
-  alert("Booking Request Sent!");
-});
+  showPopup("Booking request sent successfully!");});
 
 
 // ===============================
@@ -127,8 +126,7 @@ document.getElementById("itineraryForm").addEventListener("submit", function(e) 
 
   sendToSheet(data);
   closeModal("itineraryModal");
-  alert("Itinerary Request Sent!");
-});
+  showPopup("Itinerary request sent successfully!");});
 
 
 // ===============================
@@ -143,4 +141,30 @@ function sendToSheet(data) {
   .then(res => res.text())
   .then(res => console.log(res))
   .catch(err => console.error(err));
+}
+
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".navbar");
+
+  if (window.scrollY > 50) {
+    navbar.style.background = "rgba(0, 0, 0, 0.6)";
+    navbar.style.backdropFilter = "blur(15px)";
+  } else {
+    navbar.style.background = "rgba(255, 255, 255, 0.15)";
+    navbar.style.backdropFilter = "blur(12px)";
+  }
+});
+
+function showPopup(message) {
+  const popup = document.getElementById("customPopup");
+  const messageBox = document.getElementById("popupMessage");
+
+  if (!popup || !messageBox) return;
+
+  messageBox.innerText = message;
+  popup.style.display = "flex";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 2500);
 }

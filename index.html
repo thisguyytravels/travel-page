@@ -10,7 +10,11 @@
 
   <link rel="stylesheet" href="style.css"/>
 </head>
-
+<div class="custom-popup" id="customPopup">
+  <div class="popup-box">
+    <p id="popupMessage"></p>
+  </div>
+</div>
 <body>
 
 <!-- NAVBAR -->
@@ -57,7 +61,7 @@
   <div class="modal-content">
     <span onclick="closeModal('bookingModal')" class="close">&times;</span>
     <h2>Book Your Trip</h2>
-
+    <p id="bookingSuccess" class="success-message"></p>
     <form id="bookingForm">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email" required />
@@ -89,7 +93,7 @@
   <div class="modal-content">
     <span onclick="closeModal('itineraryModal')" class="close">&times;</span>
     <h2>Request Itinerary</h2>
-
+    <p id="itinerarySuccess" class="success-message"></p>
     <form id="itineraryForm">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email" required />
