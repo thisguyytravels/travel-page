@@ -7,23 +7,21 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css"/>
 </head>
+
+<body>
+<!-- CUSTOM POPUP -->
 <div class="custom-popup" id="customPopup">
   <div class="popup-box">
     <p id="popupMessage"></p>
   </div>
 </div>
-<body>
 
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo">This Guy Travels</div>
-
-  <!-- ADD THIS -->
   <div class="hamburger" onclick="toggleMenu()">☰</div>
-
   <ul id="navLinks">
     <li><a href="index.html#home">HOME</a></li>
     <li><a href="blogs.html">BLOGS</a></li>
@@ -42,13 +40,13 @@
   </div>
 </section>
 
-<!-- BLOG SECTION -->
+<!-- BLOGS SECTION -->
 <section class="blogs" id="blogs">
   <h2>Travel Stories</h2>
   <div class="blog-grid" id="homeBlogs"></div>
 </section>
 
-<!-- DESTINATIONS -->
+<!-- DESTINATIONS SECTION -->
 <section class="destinations" id="destinations">
   <h2>Popular Destinations</h2>
   <div class="blog-grid" id="homeDestinations"></div>
@@ -60,44 +58,102 @@
   <button onclick="openItinerary()">Request Itinerary</button>
 </section>
 
-<!-- BOOKING MODAL (UNCHANGED FROM YOUR ORIGINAL) -->
+<!-- BOOKING MODAL -->
 <div class="modal" id="bookingModal">
   <div class="modal-content">
     <span onclick="closeModal('bookingModal')" class="close">&times;</span>
     <h2>Book Your Trip</h2>
-    <p id="bookingSuccess" class="success-message"></p>
     <form id="bookingForm">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="tel" placeholder="Phone" required />
-      <input type="text" placeholder="Destination" required />
-      <input type="date" required />
+      <!-- Basic Info -->
+      <label>Full Name</label>
+      <input type="text" name="fullName" placeholder="Your full name" required />
 
-      <input type="text" placeholder="Duration (5 Days)" />
-      <input type="text" placeholder="Departure City" />
-      <input type="text" placeholder="Return City" />
-      <input type="number" placeholder="Number of Travelers" />
-      <input type="text" placeholder="Gender Split (2M,1F)" />
-      <input type="text" placeholder="Trip Type" />
-      <input type="text" placeholder="Transport Preference" />
-      <input type="text" placeholder="Service Type (Budget/Luxury)" />
-      <input type="text" placeholder="Budget Range" />
-      <textarea placeholder="Special Requests"></textarea>
+      <label>Phone Number</label>
+      <input type="tel" name="phone" placeholder="Phone number" required />
 
-      <label><input type="checkbox" required /> I agree to service fee terms</label>
-      <label><input type="checkbox" required /> Flights are separate</label>
+      <label>Email ID</label>
+      <input type="email" name="email" placeholder="Email address" required />
+
+      <!-- Travel Details -->
+      <label>Travel Destination</label>
+      <input type="text" name="destination" placeholder="Enter all cities/places you have in mind" required />
+
+      <label>Travel Dates (Tentative)</label>
+      <input type="date" name="travelDates" required />
+
+      <label>Duration of Stay (Days)</label>
+      <input type="number" name="duration" placeholder="Number of days" required />
+
+      <label>Departure City</label>
+      <input type="text" name="departureCity" placeholder="Departure city" required />
+
+      <label>Return Destination</label>
+      <input type="text" name="returnCity" placeholder="Return destination" required />
+
+      <!-- Travelers Info -->
+      <label>Number of Travelers</label>
+      <input type="text" name="travelersCount" placeholder="Ex: 1C, 2A, 0S" required />
+
+      <label>Male & Female Count</label>
+      <input type="text" name="genderSplit" placeholder="Ex: 2M, 1F" required />
+
+      <!-- Trip Type -->
+      <label>Type of Trip</label>
+      <select name="tripType" required>
+        <option value="">Select trip type</option>
+        <option value="Leisure">Leisure</option>
+        <option value="Business">Business</option>
+        <option value="Honeymoon">Honeymoon</option>
+        <option value="Family Trip">Family Trip</option>
+        <option value="Group Tour">Group Tour</option>
+        <option value="Solo Travel">Solo Travel</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Transportation -->
+      <label>Transportation Preference</label>
+      <select name="transport" required>
+        <option value="">Select transport</option>
+        <option value="Flight">Flight</option>
+        <option value="Road/Rail">Road/Rail</option>
+      </select>
+
+      <!-- Service Required -->
+      <label>Service Required</label>
+      <select name="service" required>
+        <option value="">Select service</option>
+        <option value="Detailed itinerary">Detailed itinerary</option>
+        <option value="Full Trip Planning Excl Flights">Full Trip Planning Excluding Flights</option>
+        <option value="Full Trip Planning Complete">Full Trip Planning (Complete package)</option>
+        <option value="Complete Assistance">Complete Assistance</option>
+      </select>
+
+      <!-- Budget -->
+      <label>Budget per Person (Excluding Flights)</label>
+      <input type="text" name="budget" placeholder="Budget per person" />
+
+      <!-- Special Requests -->
+      <label>Special Requests</label>
+      <input type="text" name="otherRequest" placeholder="Other request (if any)" />
+
+      <!-- Terms / Agreement -->
+      <label class="subheading-checkbox">
+        <input type="checkbox" name="agreeTerms" />
+        By submitting this form, you acknowledge and agree to these terms:<br>
+        Flight prices are dynamic and subject to change at any time based on airline policies and availability. We cannot guarantee the fare until the booking is confirmed and payment is completed.<br>
+        Please note that we have a small NON REFUNDABLE itinerary fee applied. If you request full trip planning, the itinerary fee will be waived and you will pay only the balance.
+      </label>
 
       <button type="submit">Submit Booking</button>
     </form>
   </div>
 </div>
 
-<!-- ITINERARY MODAL (UNCHANGED FROM YOUR ORIGINAL) -->
+<!-- ITINERARY MODAL -->
 <div class="modal" id="itineraryModal">
   <div class="modal-content">
     <span onclick="closeModal('itineraryModal')" class="close">&times;</span>
     <h2>Request Itinerary</h2>
-    <p id="itinerarySuccess" class="success-message"></p>
     <form id="itineraryForm">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email" required />

@@ -1,3 +1,4 @@
+/* ========== GLOBAL ========= */
 * {
   margin: 0;
   padding: 0;
@@ -5,15 +6,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
+body { background: #f9f9f9; }
 
-body {
-  background: #f9f9f9;
-}
-
-/* NAVBAR */
+/* ========== NAVBAR ========= */
 .navbar {
   position: fixed;
   top: 0;
@@ -25,6 +21,7 @@ body {
   background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
   z-index: 1000;
+  transition: 0.3s;
 }
 
 .navbar ul {
@@ -39,18 +36,32 @@ body {
   transition: 0.3s;
 }
 
-.navbar a:hover {
-  color: #ff6b6b;
+.navbar a:hover { color: #ff6b6b; }
+.logo { color: white; font-weight: 600; }
+
+.hamburger { display: none; font-size: 26px; color: white; cursor: pointer; }
+
+/* MOBILE NAV */
+@media (max-width: 768px) {
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+  .navbar ul.active { display: flex; }
+  .hamburger { display: block; }
 }
 
-.logo {
-  color: white;
-  font-weight: 600;
-}
-
-/* HERO */
+/* ========== HERO ========= */
 .hero {
-  margin-top: 0px;
+  margin-top: 0;
   position: relative;
   height: 100vh;
   background: url('https://picsum.photos/1600/900?travel') center/cover no-repeat;
@@ -61,17 +72,8 @@ body {
   text-align: center;
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
+.overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+.hero-content { position: relative; z-index: 2; max-width: 700px; padding: 0 20px; }
 .hero button {
   padding: 12px 25px;
   background: #ff6b6b;
@@ -80,72 +82,41 @@ body {
   cursor: pointer;
   border-radius: 25px;
   margin-top: 15px;
-}
-
-.fade-in {
-  animation: fadeIn 1.5s ease-in;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* BLOGS */
-.blogs {
-  padding: 80px 10%;
-  text-align: center;
-}
-
-.blog-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
+  font-size: 16px;
   transition: 0.3s;
 }
+.hero button:hover { background: #ff4b4b; }
 
-.blog-card:hover {
-  transform: translateY(-10px);
-}
+.fade-in { animation: fadeIn 1.5s ease-in; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
 
-.blog-card img {
-  width: 100%;
-}
+/* ========== BLOG / DESTINATIONS ========= */
+.blogs, .destinations { padding: 80px 10%; text-align: center; }
+.blogs h2, .destinations h2 { font-size: 32px; margin-bottom: 40px; color:#333; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 25px; margin-top: 40px; }
+.blog-card { background:white; border-radius:15px; overflow:hidden; transition:0.3s; box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+.blog-card:hover { transform: translateY(-10px); box-shadow:0 10px 30px rgba(0,0,0,0.15);}
+.blog-card img { width:100%; height:200px; object-fit:cover; }
+.blog-card h3 { padding:15px; font-size:18px; color:#333; }
+.blog-card p { padding:0 15px 20px; font-size:14px; color:gray; line-height:1.4; }
 
-.blog-card h3 {
-  padding: 15px;
-}
-
-.blog-card p {
-  padding: 0 15px 20px;
-  font-size: 14px;
-  color: gray;
-}
-
-/* DESTINATIONS */
-.destinations {
-  padding: 80px 10%;
-  text-align: center;
-}
-
-/* ITINERARY */
-.itinerary {
-  text-align: center;
-  padding: 80px;
-}
-
+/* ========== ITINERARY SECTION ========= */
+.itinerary { text-align:center; padding:80px 10%; }
 .itinerary button {
-  padding: 12px 25px;
-  background: black;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
+  padding:12px 25px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:25px;
+  cursor:pointer;
+  font-size:16px;
+  transition: 0.3s;
 }
+.itinerary button:hover { background:#333; }
 
-/* MODAL */
+/* ========== MODAL ========= */
 .modal {
-  display: none;
+  display:none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
@@ -166,85 +137,27 @@ body {
   animation: fadeInModal 0.3s ease;
 }
 
-@keyframes fadeInModal {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
+@keyframes fadeInModal { from{opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);} }
 
-.modal-content input,
-.modal-content textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
+.modal-content label { display:block; margin-top:12px; margin-bottom:6px; font-weight:500; font-size:14px; }
+.modal-content input, .modal-content select, .modal-content textarea {
+  width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc; font-size:14px;
 }
-
+.modal-content textarea { resize:none; background:#f9f9f9; }
 .modal-content button {
-  width: 100%;
-  padding: 12px;
-  background: #ff6b6b;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  margin-top: 10px;
+  width:100%; padding:12px; background:#ff6b6b; color:white; border:none; border-radius:20px; cursor:pointer; margin-top:10px;
+  transition:0.3s;
 }
+.modal-content button:hover { background:#ff4b4b; }
+.close { float:right; cursor:pointer; font-size:20px; }
 
-.close {
-  float: right;
-  cursor: pointer;
-  font-size: 20px;
-}
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
-}
-.success-message {
-  color: green;
-  font-weight: 500;
-  margin-bottom: 10px;
-  text-align: center;
-}
+/* Subheading Checkbox / Note */
+.subheading-checkbox { display:block; font-size:13px; font-weight:500; margin:6px 0; }
+.subheading-checkbox input { margin-right:8px; vertical-align:middle; }
 
-/* ================= MOBILE RESPONSIVE ================= */
-/* 
-@media (max-width: 768px) {
-
-  .navbar {
-    flex-direction: column;
-    padding: 15px;
-    text-align: center;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .hero {
-    height: 80vh;
-    padding: 20px;
-  }
-
-  .blogs,
-  .destinations {
-    padding: 60px 20px;
-  }
-
-  .blog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .modal-content {
-    padding: 20px;
-  }
-} */
-/* ================= CUSTOM POPUP ================= */
-
+/* ========== CUSTOM POPUP ========= */
 .custom-popup {
-  position: fixed;
-  inset: 0;
+  position: fixed; inset:0;
   background: rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
   display: none;
@@ -252,57 +165,21 @@ body {
   align-items: center;
   z-index: 3000;
 }
-
 .popup-box {
-  background: white;
-  padding: 25px 40px;
-  border-radius: 15px;
-  font-weight: 500;
+  background:white; padding:25px 40px; border-radius:15px; font-weight:500;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   animation: popupFade 0.3s ease;
 }
+@keyframes popupFade { from {transform:scale(0.9); opacity:0;} to{transform:scale(1); opacity:1;} }
 
-@keyframes popupFade {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* ========== RESPONSIVE HERO & BLOGS ========= */
+@media (max-width: 992px){
+  .hero { height:80vh; }
+  .hero-content h1 { font-size:32px; }
+  .hero-content p { font-size:16px; }
 }
-
-/* ================= HAMBURGER MENU ================= */
-
-.hamburger {
-  display: none;
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  .navbar {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .navbar ul {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(12px);
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    display: none;
-  }
-
-  .navbar ul.active {
-    display: flex;
-  }
-
+@media (max-width: 576px){
+  .hero { height:70vh; }
+  .blogs, .destinations, .itinerary { padding:50px 5%; }
+  .blog-card img { height:180px; }
 }
