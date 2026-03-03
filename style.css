@@ -266,3 +266,43 @@ body {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+
+/* ================= HAMBURGER MENU ================= */
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+}

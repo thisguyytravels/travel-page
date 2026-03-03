@@ -168,3 +168,7 @@ function showPopup(message) {
     popup.style.display = "none";
   }, 2500);
 }
+function toggleMenu() {
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("active");
+}
