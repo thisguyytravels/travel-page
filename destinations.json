@@ -1,0 +1,17 @@
+[
+    {
+      "title": "Bali",
+      "image": "https://picsum.photos/400/300?random=21",
+      "description": "Tropical paradise and beaches."
+    },
+    {
+      "title": "Dubai",
+      "image": "https://picsum.photos/400/300?random=22",
+      "description": "Luxury and futuristic skyline."
+    },
+    {
+      "title": "Switzerland",
+      "image": "https://picsum.photos/400/300?random=23",
+      "description": "Alps and scenic train journeys."
+    }
+  ]

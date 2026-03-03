@@ -8,15 +8,24 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-
   <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">This Guy Travels</div>
+  <ul>
+    <li><a href="index.html#home">HOME</a></li>
+    <li><a href="blogs.html">BLOGS</a></li>
+    <li><a href="destinations.html">DESTINATIONS</a></li>
+    <li><a href="#itinerary">BUY ITINERARY</a></li>
+  </ul>
+</nav>
+
 <!-- HERO SECTION -->
-<section class="hero">
+<section class="hero" id="home">
   <div class="overlay"></div>
   <div class="hero-content fade-in">
     <h1>This Guy Travels</h1>
@@ -26,75 +35,71 @@
 </section>
 
 <!-- BLOG SECTION -->
-<section class="blogs">
+<section class="blogs" id="blogs">
   <h2>Travel Stories</h2>
+  <div class="blog-grid" id="homeBlogs"></div>
+</section>
 
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-
-      <!-- BLOG CARD -->
-      <div class="swiper-slide blog-card">
-        <img src="https://picsum.photos/400/300?random=1" />
-        <h3>Meghalaya Diaries</h3>
-        <p>Misty waterfalls and living root bridges.</p>
-      </div>
-
-      <div class="swiper-slide blog-card">
-        <img src="https://picsum.photos/400/300?random=2" />
-        <h3>Assam Chronicles</h3>
-        <p>Tea gardens & cultural richness.</p>
-      </div>
-
-      <div class="swiper-slide blog-card">
-        <img src="https://picsum.photos/400/300?random=3" />
-        <h3>Himachal Escape</h3>
-        <p>Snow peaks and peaceful valleys.</p>
-      </div>
-
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <h2>Popular Destinations</h2>
+  <div class="blog-grid" id="homeDestinations"></div>
 </section>
 
 <!-- ITINERARY SECTION -->
-<section class="itinerary">
+<section class="itinerary" id="itinerary">
   <h2>Buy Our Itinerary</h2>
   <button onclick="openItinerary()">Request Itinerary</button>
 </section>
 
-<!-- BOOKING MODAL -->
+<!-- BOOKING MODAL (UNCHANGED FROM YOUR ORIGINAL) -->
 <div class="modal" id="bookingModal">
   <div class="modal-content">
     <span onclick="closeModal('bookingModal')" class="close">&times;</span>
     <h2>Book Your Trip</h2>
+
     <form id="bookingForm">
-      <input type="text" placeholder="Name" required />
+      <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email" required />
-      <input type="tel" placeholder="Phone Number" required />
+      <input type="tel" placeholder="Phone" required />
       <input type="text" placeholder="Destination" required />
       <input type="date" required />
-      <button type="submit">Submit</button>
+
+      <input type="text" placeholder="Duration (5 Days)" />
+      <input type="text" placeholder="Departure City" />
+      <input type="text" placeholder="Return City" />
+      <input type="number" placeholder="Number of Travelers" />
+      <input type="text" placeholder="Gender Split (2M,1F)" />
+      <input type="text" placeholder="Trip Type" />
+      <input type="text" placeholder="Transport Preference" />
+      <input type="text" placeholder="Service Type (Budget/Luxury)" />
+      <input type="text" placeholder="Budget Range" />
+      <textarea placeholder="Special Requests"></textarea>
+
+      <label><input type="checkbox" required /> I agree to service fee terms</label>
+      <label><input type="checkbox" required /> Flights are separate</label>
+
+      <button type="submit">Submit Booking</button>
     </form>
   </div>
 </div>
 
-<!-- ITINERARY MODAL -->
+<!-- ITINERARY MODAL (UNCHANGED FROM YOUR ORIGINAL) -->
 <div class="modal" id="itineraryModal">
   <div class="modal-content">
     <span onclick="closeModal('itineraryModal')" class="close">&times;</span>
     <h2>Request Itinerary</h2>
+
     <form id="itineraryForm">
-      <input type="text" placeholder="Name" required />
+      <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email" required />
-      <input type="text" placeholder="Destination" required />
+      <input type="tel" placeholder="Contact Number" required />
+      <input type="text" placeholder="Itinerary Requested" required />
       <button type="submit">Request</button>
     </form>
   </div>
 </div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>

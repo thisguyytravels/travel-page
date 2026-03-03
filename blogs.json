@@ -1,12 +1,22 @@
 [
-    {
-      "title": "Exploring Meghalaya",
-      "image": "images/meghalaya.jpg",
-      "description": "Waterfalls, caves and scenic beauty."
-    },
-    {
-      "title": "Discovering Assam",
-      "image": "images/assam.jpg",
-      "description": "Tea gardens and rich culture."
-    }
-  ]
+  {
+    "title": "Exploring Meghalaya",
+    "image": "https://picsum.photos/400/300?random=11",
+    "description": "Waterfalls, caves and scenic beauty."
+  },
+  {
+    "title": "Discovering Assam",
+    "image": "https://picsum.photos/400/300?random=12",
+    "description": "Tea gardens and rich culture."
+  },
+  {
+    "title": "Himachal Escape",
+    "image": "https://picsum.photos/400/300?random=13",
+    "description": "Snow peaks and peaceful valleys."
+  },
+  {
+    "title": "Jammu Escape",
+    "image": "https://picsum.photos/400/300?random=13",
+    "description": "Snow peaks and peaceful valleys."
+  }
+]
