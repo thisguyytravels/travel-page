@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Malaysia - This Guy Travels</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Custom Font ===== */
+    @font-face {
+      font-family: 'Soria';
+      src: url('../fonts/soria.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    /* ===== Global ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fefbf6;
+      color: #333;
+      line-height:1.7;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    img { display:block; }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      top:0; left:0; right:0;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      padding:1rem 3rem;
+      z-index:100;
+      background: rgba(255,255,255,0.25);
+      backdrop-filter: blur(12px);
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .navbar.sticky { background: rgba(255,255,255,0.85); }
+    .navbar .logo { font-weight:700; font-size:1.6rem; color:#2c3e50; }
+    .navbar ul { display:flex; list-style:none; gap:2rem; }
+    .navbar ul li a { text-decoration:none; color:#2c3e50; font-weight:500; transition:0.3s; }
+    .navbar ul li a:hover { color:#ff6f61; }
+
+    /* ===== Hero ===== */
+    .hero {
+      height: 90vh;
+      background-image: url('../images/malaysia-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content:'';
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-family: 'Soria', serif;
+      font-size:5rem;
+      color:white;
+      text-transform:uppercase;
+      letter-spacing:5px;
+      position:relative;
+      z-index:1;
+      text-align:center;
+    }
+
+    /* ===== Story Section ===== */
+    .story {
+      max-width:900px;
+      margin:5rem auto 3rem;
+      padding:0 1rem;
+      opacity:0;
+      transform: translateY(40px);
+      transition: all 0.8s ease-out;
+    }
+    .story.active { opacity:1; transform: translateY(0); }
+    .story p {
+      margin-bottom:1.5rem;
+      font-size:1.1rem;
+      color:#34495e;
+      text-align: justify;
+    }
+    blockquote {
+      border-left:5px solid #ff6f61;
+      background:#fff2f0;
+      padding:1rem 1.5rem;
+      border-radius:10px;
+      font-style:italic;
+      color:#555;
+      margin:2rem 0;
+      box-shadow:0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    /* ===== Horizontal Image Gallery ===== */
+    .gallery-container {
+      max-width:900px;
+      margin:3rem auto;
+      position: relative;
+      padding:0 1rem;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap:1rem;
+      padding-bottom:1rem;
+      margin: 0 -5%; /* 5% bleed */
+    }
+    .gallery img {
+      flex: 0 0 auto;
+      width: 350px;
+      max-width: none;
+      height: auto;
+      border-radius:12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    .gallery-button {
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.7);
+      border:none;
+      font-size:2rem;
+      padding:0.3rem 0.8rem;
+      cursor:pointer;
+      border-radius:50%;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      transition:0.3s;
+      z-index:10;
+    }
+    .gallery-button:hover { background: rgba(255,111,97,0.9); color:white; }
+    .prev { left:-3rem; }
+    .next { right:-3rem; }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align:center;
+      padding:2rem 1rem;
+      background:#2c3e50;
+      color:white;
+      font-size:0.9rem;
+      margin-top:3rem;
+    }
+
+    /* Optional: remove scrollbar styling */
+    .gallery::-webkit-scrollbar { height: 8px; }
+    .gallery::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius:4px; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">This Guy Travels</div>
+    <ul>
+      <li><a href="../index.html">HOME</a></li>
+      <li><a href="../blogs.html">BLOGS</a></li>
+      <li><a href="../destinations.html">DESTINATIONS</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>MALAYSIA</h1>
+  </section>
+
+  <!-- Story Section -->
+  <div class="story" id="story">
+    <p>March 2024, yaar… first international trip and first flight ever. Imagine me, suitcase in one hand, passport in the other, trying to look chill while my brain was literally screaming “what if I miss my flight, what if I can’t find the boarding gate, the panic? Legendary.</p>
+  
+    <p>The plane takes off, and suddenly I’m staring out the window like I just discovered Narnia. Clouds, mini airplanes below us, the whole sky shimmering like Instagram filters but in real life. I lowkey screamed inside. People around me were sleeping. How? How can someone sleep while flying?! Absolute sorcery.</p>
+  
+    <p>Landing was wild. Customs? Easy. Currency exchange? My brain short-circuited at seeing all the colorful notes. I felt rich for a second. Humidity hits you like a warm, wet hug. Not gonna lie, I hated it first 5 minutes, then I realized: this is adventure and I’m here for it.</p>
+  
+    <p>We went places no travel agency would recommend. Random streets full of smells that make you hungry and confused. Alleyways painted like a candy store exploded. Tiny food stalls where I had no idea what I was eating — could be veg, tofu, or alien meat? 10/10 would risk again. Every bite was “surprise flavor of the year.”</p>
+  
+    <p>Mountains looked photoshopped into reality. Mist hugging hills, cable cars floating like magic carpets, and me thinking, “Bro, how is this even real?” Almost tried to levitate, but gravity won.</p>
+  
+    <p>Waterfalls tucked away in secret spots even Google Maps doubted. Jumped in, screamed like maniacs, scared local ducks, left with soaked shoes, wild hair, and instant “best story ever” memories.</p>
+  
+    <p>Beaches straight out of movies, sand like clouds under feet, turquoise waters like spilled paint. Sunset hit, photographer mood activated.</p>
+  
+    <p>Night markets were pure chaos. Lights, music, fried stuff everywhere, bargaining in kanglish, ending up with a mini fridge magnet shaped like a bald eagle. Street food again? Yes, noodles in a cardboard box taste like heaven at midnight.</p>
+  
+    <p>Random temples and statues? Jaw-dropping. Golden statues bigger than my body, incense smoke mystical, monkeys walking around like owners. Monkey:1, Me:0.</p>
+  
+    <blockquote>March 2024 = first flight, first international trip, first wild chaos adventure. Malaysia, you were messy, spicy, unpredictable, and unforgettable. #TravelGoals #FirstTimeEverywhere</blockquote>
+  </div>
+
+  <!-- Horizontal Image Gallery -->
+  <div class="gallery-container">
+    <button class="gallery-button prev" onclick="scrollGallery(-1)">&#10094;</button>
+    <div class="gallery" id="gallery">
+      <img src="../images/kl.jpg">
+      <img src="../images/penang.jpg">
+      <img src="../images/malacca.jpg">
+      <img src="../images/langkawi.jpg">
+      <img src="../images/genting.jpg">
+      <img src="../images/kilim.jpg">
+      <img src="../images/putrajaya.jpg">
+      <img src="../images/batu.jpg">
+      <img src="../images/bridge.jpg">
+    </div>
+    <button class="gallery-button next" onclick="scrollGallery(1)">&#10095;</button>
+  </div>
+
+  <footer>
+    &copy; 2026 This Guy Travels. All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const story = document.getElementById('story');
+    const navbar = document.getElementById('navbar');
+
+    // Scroll fade-in for story
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 100) story.classList.add('active');
+      else story.classList.remove('active');
+
+      // Navbar sticky effect
+      if(window.scrollY > 50) navbar.classList.add('sticky');
+      else navbar.classList.remove('sticky');
+    });
+
+    // Gallery scroll buttons
+    const gallery = document.getElementById('gallery');
+    function scrollGallery(direction){
+      const scrollAmount = 300;
+      gallery.scrollBy({ left: direction*scrollAmount, behavior:'smooth' });
+    }
+  </script>
+</body>
+</html>

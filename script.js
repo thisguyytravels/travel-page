@@ -129,3 +129,59 @@ function showPopup(message) {
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
+items.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "blog-card";
+  card.innerHTML = `
+    <a href="${item.link}">
+      <img src="${item.image}" alt="${item.title}"/>
+      <h3>${item.title}</h3>
+      <p>${item.description}</p>
+    </a>
+  `;
+  container.appendChild(card);
+});
+
+/* ===== JSON LOADER ===== */
+async function loadJSON(file, containerId, limit = null) {
+  try {
+    const res = await fetch(file);
+    const data = await res.json();
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const items = limit ? data.slice(0, limit) : data;
+
+    items.forEach(item => {
+      // Create the blog card
+      const card = document.createElement("div");
+      card.className = "blog-card";
+
+      // Make the card clickable
+      card.addEventListener("click", () => {
+        window.location.href = item.link;
+      });
+
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title}"/>
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+      `;
+
+      // Optional: change cursor on hover
+      card.style.cursor = "pointer";
+
+      container.appendChild(card);
+    });
+  } catch (e) {
+    console.error("JSON Load Error:", e);
+  }
+}
+
+// Load blogs when the DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementById("homeBlogs")) loadJSON("blogs.json", "homeBlogs", 3);
+  if (document.getElementById("homeDestinations")) loadJSON("destinations.json", "homeDestinations", 3);
+  if (document.getElementById("allBlogs")) loadJSON("blogs.json", "allBlogs");  // This loads blogs.html cards
+  if (document.getElementById("allDestinations")) loadJSON("destinations.json", "allDestinations");
+});

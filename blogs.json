@@ -1,22 +1,27 @@
 [
   {
+    "title": "Malaysia Escape",
+    "image": "/images/malaysia.jpg",
+    "description": "Beaches, mountains, and amazing experiences.",
+    "link": "all-blogs/malaysia.html"
+  },
+  {
     "title": "Exploring Meghalaya",
-    "image": "https://picsum.photos/400/300?random=11",
-    "description": "Waterfalls, caves and scenic beauty."
+    "image": "/images/meghalaya.jpg",
+    "description": "Waterfalls, caves and scenic beauty.",
+    "link": "meghalaya.html"
   },
   {
     "title": "Discovering Assam",
     "image": "https://picsum.photos/400/300?random=12",
-    "description": "Tea gardens and rich culture."
+    "description": "Tea gardens and rich culture.",
+    "link": "assam.html"
   },
   {
     "title": "Himachal Escape",
     "image": "https://picsum.photos/400/300?random=13",
-    "description": "Snow peaks and peaceful valleys."
-  },
-  {
-    "title": "Jammu Escape",
-    "image": "https://picsum.photos/400/300?random=13",
-    "description": "Snow peaks and peaceful valleys."
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "himachal.html"
   }
+
 ]
