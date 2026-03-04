@@ -288,7 +288,7 @@
   </div>
 
   <footer>
-    &copy; 2026 This Guy Travels. All rights reserved.
+    <p>&copy; <span id="year"></span> This Guy Travels. All Rights Reserved.</p>
   </footer>
 
   <!-- JS -->
@@ -296,6 +296,10 @@
     const story = document.getElementById('story');
     const navbar = document.getElementById('navbar');
 
+    const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
     // Scroll fade-in for story
     window.addEventListener('scroll', () => {
       if(window.scrollY > 100) story.classList.add('active');
