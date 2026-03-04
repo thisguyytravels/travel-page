@@ -1,13 +1,13 @@
 [
   {
     "title": "Malaysia Escape",
-    "image": "/images/malaysia.jpg",
+    "image": "images/malaysia.jpg",
     "description": "Beaches, mountains, and amazing experiences.",
     "link": "all-blogs/malaysia.html"
   },
   {
     "title": "Exploring Meghalaya",
-    "image": "/images/meghalaya.jpg",
+    "image": "images/meghalaya.jpg",
     "description": "Waterfalls, caves and scenic beauty.",
     "link": "meghalaya.html"
   },

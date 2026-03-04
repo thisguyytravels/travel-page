@@ -8,6 +8,36 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+/* ============================= */
+/* ===== MOBILE RESPONSIVE ===== */
+/* ============================= */
+@media (max-width: 768px) {
+
+.hero h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+.story {
+  max-width: 95%;
+  margin: 3rem auto 2rem;
+  padding: 0 0.8rem;
+}
+
+.story p {
+  font-size: 1rem;
+  text-align: left;
+}
+
+.gallery-container {
+  max-width: 100%;
+}
+
+.gallery img {
+  width: 280px;
+}
+
+}
     /* ===== Custom Font ===== */
     @font-face {
       font-family: 'Soria';
@@ -160,6 +190,39 @@
     /* Optional: remove scrollbar styling */
     .gallery::-webkit-scrollbar { height: 8px; }
     .gallery::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius:4px; }
+    /* Hamburger hidden on desktop */
+
+    .hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+  .hamburger {
+    display: block;
+  }
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(255,255,255,0.95);
+    flex-direction: column;
+    width: 200px;
+    text-align: center;
+    padding: 1rem 0;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 10px 0 0 10px;
+  }
+  .navbar ul.active {
+    display: flex;
+  }
+}
   </style>
 </head>
 <body>
@@ -167,7 +230,12 @@
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="logo">This Guy Travels</div>
-    <ul>
+  
+    <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
+  
+    <ul id="nav-links">
       <li><a href="../index.html">HOME</a></li>
       <li><a href="../blogs.html">BLOGS</a></li>
       <li><a href="../destinations.html">DESTINATIONS</a></li>
