@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Malaysia Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fefbf6;
+margin:0;
+}
+
+h1{
+text-align:center;
+margin-top:120px;
+margin-bottom:40px;
+}
+
+/* GALLERY GRID */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+cursor:pointer;
+transition:0.35s;
+box-shadow:0 6px 20px rgba(0,0,0,0.1);
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+pointer-events:none;
+transition:0.3s;
+}
+
+.popup.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.popup img{
+max-width:90%;
+max-height:90%;
+}
+
+/* WATERMARK */
+
+.watermark{
+position:absolute;
+color:white;
+font-size:3rem;
+opacity:0.15;
+transform:rotate(-35deg);
+pointer-events:none;
+}
+
+img{
+user-select:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+<div class="logo">
+<a href="../index.html" style="color:white;text-decoration:none;">This Guy Travels</a>
+</div>
+
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<ul id="navLinks">
+<li><a href="../index.html">HOME</a></li>
+<li><a href="../blogs.html">BLOGS</a></li>
+<li><a href="../destinations.html">DESTINATIONS</a></li>
+<li><a href="../gallery.html">GALLERY</a></li>
+<li><a href="../index.html#itinerary">BUY ITINERARY</a></li>
+</ul>
+
+</nav>
+
+<h1>Malaysia Photo Gallery</h1>
+
+<div class="gallery">
+
+<img src="../images/kl.jpg" loading="lazy">
+<img src="../images/penang.jpg" loading="lazy">
+<img src="../images/langkawi.jpg" loading="lazy">
+<img src="../images/batu.jpg" loading="lazy">
+<img src="../images/bridge.jpg" loading="lazy">
+<img src="../images/genting.jpg" loading="lazy">
+
+</div>
+
+<div class="popup" id="popup">
+<div class="watermark">This Guy Travels ©</div>
+<img id="popupImg">
+</div>
+
+<script>
+
+/* Disable right click */
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+/* Popup viewer */
+
+const images=document.querySelectorAll(".gallery img");
+const popup=document.getElementById("popup");
+const popupImg=document.getElementById("popupImg");
+
+images.forEach(img=>{
+img.addEventListener("click",()=>{
+popup.classList.add("active");
+popupImg.src=img.src;
+});
+});
+
+popup.addEventListener("click",()=>{
+popup.classList.remove("active");
+});
+
+</script>
+
+<script src="../script.js"></script>
+
+</body>
+</html>
