@@ -9,23 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 /* ===== Custom Fonts ===== */
-
 @font-face {
   font-family: 'Casanova';
   src: url('../fonts/casanova.otf') format('opentype');
 }
-
 @font-face {
   font-family: 'Soria';
   src: url('../fonts/soria.ttf') format('opentype');
 }
 
 /* ===== Global ===== */
-
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
   font-family:'Poppins',sans-serif;
   background:#fefbf6;
@@ -33,11 +28,9 @@ body{
   line-height:1.7;
   overflow-x:hidden;
 }
-
 img{display:block;}
 
-/* ===== Navbar ===== */
-
+/* ===== NAVBAR ===== */
 .navbar{
   position:fixed;
   top:0;
@@ -46,39 +39,38 @@ img{display:block;}
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:1rem 3rem;
+  padding:1rem 2rem;
   background:rgba(255,255,255,0.25);
   backdrop-filter:blur(12px);
-  z-index:100;
+  z-index:1000;
 }
-
-.navbar.sticky{
-  background:rgba(255,255,255,0.85);
-}
-
-.logo{
+.navbar .logo{
   font-weight:700;
   font-size:1.6rem;
+  color:#2c3e50;
+  text-decoration:none;
 }
-
 .navbar ul{
   list-style:none;
   display:flex;
   gap:2rem;
 }
-
 .navbar ul li a{
   text-decoration:none;
   color:#2c3e50;
   font-weight:500;
+  font-size:1rem;
 }
-
 .navbar ul li a:hover{
   color:#ff6f61;
 }
+.hamburger{
+  display:none;
+  font-size:1.8rem;
+  cursor:pointer;
+}
 
 /* ===== HERO ===== */
-
 .hero{
   height:90vh;
   background:url('../images/malaysia-hero.jpg') center/cover no-repeat;
@@ -89,14 +81,12 @@ img{display:block;}
   text-align:center;
   position:relative;
 }
-
 .hero::after{
   content:'';
   position:absolute;
   inset:0;
   background:rgba(0,0,0,0.35);
 }
-
 .hero-title{
   font-family:'Casanova',serif;
   font-size:5rem;
@@ -105,7 +95,6 @@ img{display:block;}
   position:relative;
   z-index:1;
 }
-
 .hero p{
   color:white;
   position:relative;
@@ -115,7 +104,6 @@ img{display:block;}
 }
 
 /* ===== STORY ===== */
-
 .story{
   max-width:900px;
   margin:5rem auto;
@@ -124,19 +112,14 @@ img{display:block;}
   transform:translateY(40px);
   transition:0.8s;
 }
-
 .story.active{
   opacity:1;
   transform:translateY(0);
 }
-
 .story p{
   margin-bottom:1.5rem;
   text-align:justify;
 }
-
-/* FIRST LETTER */
-
 .story p:first-of-type::first-letter{
   font-size:2.8rem;
   font-weight:bold;
@@ -145,7 +128,6 @@ img{display:block;}
   line-height:1;
   color:#ff6f61;
 }
-
 blockquote{
   border-left:5px solid #ff6f61;
   background:#fff2f0;
@@ -155,41 +137,35 @@ blockquote{
   font-style:italic;
 }
 
-/* ===== Gallery Title ===== */
-
+/* ===== GALLERY ===== */
 .gallery-title{
   text-align:center;
   font-family:'Soria',serif;
   font-size:2.4rem;
   margin-bottom:2rem;
 }
-
-/* ===== Gallery ===== */
-
 .gallery-container{
   max-width:900px;
   margin:auto;
   position:relative;
+  padding:0 1rem;
 }
-
 .gallery{
   display:flex;
   overflow-x:auto;
   gap:1rem;
+  scroll-behavior:smooth;
   padding-bottom:1rem;
 }
-
 .gallery img{
   width:350px;
   border-radius:12px;
   box-shadow:0 8px 20px rgba(0,0,0,0.1);
   transition:0.3s;
 }
-
 .gallery img:hover{
   transform:scale(1.05);
 }
-
 .gallery-button{
   position:absolute;
   top:50%;
@@ -200,12 +176,10 @@ blockquote{
   padding:0.3rem 0.8rem;
   cursor:pointer;
 }
-
 .prev{left:-40px;}
 .next{right:-40px;}
 
-/* ===== Footer ===== */
-
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:2rem;
@@ -214,135 +188,91 @@ footer{
   margin-top:3rem;
 }
 
-/* ===== Mobile ===== */
-
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-
-.hero-title{
-  font-size:2.6rem;
+  .hero-title{font-size:2.6rem;}
+  .story{margin:3rem auto;}
+  .gallery img{width:280px;}
+  .navbar ul{display:none;flex-direction:column;background:rgba(255,255,255,0.95);position:absolute;top:100%;right:0;width:200px;padding:1rem;border-radius:0 0 0 10px;}
+  .navbar ul.active{display:flex;}
+  .hamburger{display:block;}
+  .gallery-button.prev{left:0;}
+  .gallery-button.next{right:0;}
 }
-
-.story{
-  margin:3rem auto;
-}
-
-.gallery img{
-  width:280px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
-
 <nav class="navbar" id="navbar">
-
-<div class="logo">This Guy Travels</div>
-
-<ul>
-<li><a href="../index.html">HOME</a></li>
-<li><a href="../blogs.html">BLOGS</a></li>
-<li><a href="../destinations.html">DESTINATIONS</a></li>
-</ul>
-
+  <div class="logo">This Guy Travels</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <ul id="navLinks">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="../blogs.html">BLOGS</a></li>
+    <li><a href="../destinations.html">DESTINATIONS</a></li>
+  </ul>
 </nav>
 
-<!-- HERO -->
-
 <section class="hero">
-
-<h1 class="hero-title">MALAYSIA</h1>
-
-<p>
-My first flight. My first international trip.
-A chaotic, beautiful adventure across misty hills,
-night markets, waterfalls and unexpected stories.
-</p>
-
+  <h1 class="hero-title">MALAYSIA</h1>
+  <p>My first flight. My first international trip. A chaotic, beautiful adventure across misty hills, night markets, waterfalls and unexpected stories.</p>
 </section>
 
-
-<!-- Story Section -->
 <div class="story" id="story">
-    <p>March 2024, yaar… first international trip and first flight ever. Imagine me, suitcase in one hand, passport in the other, trying to look chill while my brain was literally screaming “what if I miss my flight, what if I can’t find the boarding gate, the panic? Legendary.</p>
-
-    <p>The plane takes off, and suddenly I’m staring out the window like I just discovered Narnia. Clouds, mini airplanes below us, the whole sky shimmering like Instagram filters but in real life. I lowkey screamed inside. People around me were sleeping. How? How can someone sleep while flying?! Absolute sorcery.</p>
-
-    <p>Landing was wild. Customs? Easy. Currency exchange? My brain short-circuited at seeing all the colorful notes. I felt rich for a second. Humidity hits you like a warm, wet hug. Not gonna lie, I hated it first 5 minutes, then I realized: this is adventure and I’m here for it.</p>
-
-    <p>We went places no travel agency would recommend. Random streets full of smells that make you hungry and confused. Alleyways painted like a candy store exploded. Tiny food stalls where I had no idea what I was eating — could be veg, tofu, or alien meat? 10/10 would risk again. Every bite was “surprise flavor of the year.”</p>
-
-    <p>Mountains looked photoshopped into reality. Mist hugging hills, cable cars floating like magic carpets, and me thinking, “Bro, how is this even real?” Almost tried to levitate, but gravity won.</p>
-
-    <p>Waterfalls tucked away in secret spots even Google Maps doubted. Jumped in, screamed like maniacs, scared local ducks, left with soaked shoes, wild hair, and instant “best story ever” memories.</p>
-
-    <p>Beaches straight out of movies, sand like clouds under feet, turquoise waters like spilled paint. Sunset hit, photographer mood activated.</p>
-
-    <p>Night markets were pure chaos. Lights, music, fried stuff everywhere, bargaining in kanglish, ending up with a mini fridge magnet shaped like a bald eagle. Street food again? Yes, noodles in a cardboard box taste like heaven at midnight.</p>
-
-    <p>Random temples and statues? Jaw-dropping. Golden statues bigger than my body, incense smoke mystical, monkeys walking around like owners. Monkey:1, Me:0.</p>
-
-    <blockquote>March 2024 = first flight, first international trip, first wild chaos adventure. Malaysia, you were messy, spicy, unpredictable, and unforgettable. #TravelGoals #FirstTimeEverywhere</blockquote>
+  <p>March 2024, yaar… first international trip and first flight ever. Imagine me, suitcase in one hand, passport in the other, trying to look chill while my brain was literally screaming “what if I miss my flight, what if I can’t find the boarding gate, the panic? Legendary.</p>
+  <p>The plane takes off, and suddenly I’m staring out the window like I just discovered Narnia. Clouds, mini airplanes below us, the whole sky shimmering like Instagram filters but in real life. I lowkey screamed inside. People around me were sleeping. How? How can someone sleep while flying?! Absolute sorcery.</p>
+  <p>Landing was wild. Customs? Easy. Currency exchange? My brain short-circuited at seeing all the colorful notes. I felt rich for a second. Humidity hits you like a warm, wet hug. Not gonna lie, I hated it first 5 minutes, then I realized: this is adventure and I’m here for it.</p>
+  <p>We went places no travel agency would recommend. Random streets full of smells that make you hungry and confused. Alleyways painted like a candy store exploded. Tiny food stalls where I had no idea what I was eating — could be veg, tofu, or alien meat? 10/10 would risk again. Every bite was “surprise flavor of the year.”</p>
+  <p>Mountains looked photoshopped into reality. Mist hugging hills, cable cars floating like magic carpets, and me thinking, “Bro, how is this even real?” Almost tried to levitate, but gravity won.</p>
+  <p>Waterfalls tucked away in secret spots even Google Maps doubted. Jumped in, screamed like maniacs, scared local ducks, left with soaked shoes, wild hair, and instant “best story ever” memories.</p>
+  <p>Beaches straight out of movies, sand like clouds under feet, turquoise waters like spilled paint. Sunset hit, photographer mood activated.</p>
+  <p>Night markets were pure chaos. Lights, music, fried stuff everywhere, bargaining in kanglish, ending up with a mini fridge magnet shaped like a bald eagle. Street food again? Yes, noodles in a cardboard box taste like heaven at midnight.</p>
+  <p>Random temples and statues? Jaw-dropping. Golden statues bigger than my body, incense smoke mystical, monkeys walking around like owners. Monkey:1, Me:0.</p>
+  <blockquote>March 2024 = first flight, first international trip, first wild chaos adventure. Malaysia, you were messy, spicy, unpredictable, and unforgettable. #TravelGoals #FirstTimeEverywhere</blockquote>
 </div>
-<!-- GALLERY -->
 
 <div class="gallery-title">Moments from Malaysia</div>
-
 <div class="gallery-container">
-
-<button class="gallery-button prev" onclick="scrollGallery(-1)">❮</button>
-
-<div class="gallery" id="gallery">
-
-<img src="../images/kl.jpg">
-<img src="../images/penang.jpg">
-<img src="../images/malacca.jpg">
-<img src="../images/langkawi.jpg">
-<img src="../images/genting.jpg">
-<img src="../images/kilim.jpg">
-<img src="../images/putrajaya.jpg">
-<img src="../images/batu.jpg">
-<img src="../images/bridge.jpg">
-
-</div>
-
-<button class="gallery-button next" onclick="scrollGallery(1)">❯</button>
-
+  <button class="gallery-button prev" onclick="scrollGallery(-1)">❮</button>
+  <div class="gallery" id="gallery">
+    <img src="../images/kl.jpg">
+    <img src="../images/penang.jpg">
+    <img src="../images/malacca.jpg">
+    <img src="../images/langkawi.jpg">
+    <img src="../images/genting.jpg">
+    <img src="../images/kilim.jpg">
+    <img src="../images/putrajaya.jpg">
+    <img src="../images/batu.jpg">
+    <img src="../images/bridge.jpg">
+  </div>
+  <button class="gallery-button next" onclick="scrollGallery(1)">❯</button>
 </div>
 
 <footer>
-<p>&copy; <span id="year"></span> This Guy Travels</p>
+  <p>&copy; <span id="year"></span> This Guy Travels</p>
 </footer>
 
 <script>
-
-document.getElementById("year").textContent=new Date().getFullYear();
-
-const story=document.getElementById('story');
-const navbar=document.getElementById('navbar');
-
-window.addEventListener('scroll',()=>{
-
-if(window.scrollY>100) story.classList.add('active');
-else story.classList.remove('active');
-
-if(window.scrollY>50) navbar.classList.add('sticky');
-else navbar.classList.remove('sticky');
-
-});
-
-const gallery=document.getElementById('gallery');
-
-function scrollGallery(direction){
-gallery.scrollBy({
-left:direction*300,
-behavior:'smooth'
-});
+// Hamburger toggle
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
 }
 
-</script>
+// Set year
+document.getElementById("year").textContent = new Date().getFullYear();
 
+// Story animation
+const story = document.getElementById('story');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 100) story.classList.add('active');
+  else story.classList.remove('active');
+});
+
+// Gallery scroll
+const gallery = document.getElementById('gallery');
+function scrollGallery(direction){
+  gallery.scrollBy({ left: direction*300, behavior:'smooth' });
+}
+</script>
 </body>
 </html>

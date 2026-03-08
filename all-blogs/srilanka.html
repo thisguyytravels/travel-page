@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Lanka - This Guy Travels</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== Custom Fonts ===== */
+@font-face { font-family: 'Casanova'; src: url('../fonts/casanova.otf') format('opentype'); }
+@font-face { font-family: 'Soria'; src: url('../fonts/soria.ttf') format('opentype'); }
+
+/* ===== Global ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{ font-family:'Poppins',sans-serif; background:#fefbf6; color:#333; line-height:1.7; overflow-x:hidden; }
+img{display:block;}
+
+/* ===== NAVBAR ===== */
+.navbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(255,255,255,0.25);backdrop-filter:blur(12px);z-index:1000;}
+.navbar .logo{font-weight:700;font-size:1.6rem;color:#2c3e50;text-decoration:none;}
+.navbar ul{list-style:none;display:flex;gap:2rem;}
+.navbar ul li a{text-decoration:none;color:#2c3e50;font-weight:500;font-size:1rem;}
+.navbar ul li a:hover{color:#ff6f61;}
+.hamburger{display:none;font-size:1.8rem;cursor:pointer;}
+
+/* ===== HERO ===== */
+.hero{height:90vh;background:url('../images/srilanka-hero.jpg') center/cover no-repeat;display:flex;justify-content:center;align-items:center;flex-direction:column;text-align:center;position:relative;}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);}
+.hero-title{font-family:'Casanova',serif;font-size:5rem;letter-spacing:5px;color:white;position:relative;z-index:1;}
+.hero p{color:white;position:relative;z-index:1;max-width:600px;margin-top:10px;}
+
+/* ===== STORY ===== */
+.story{max-width:900px;margin:5rem auto;padding:0 1rem;opacity:0;transform:translateY(40px);transition:0.8s;}
+.story.active{opacity:1;transform:translateY(0);}
+.story p{margin-bottom:1.5rem;text-align:justify;}
+.story p:first-of-type::first-letter{font-size:2.8rem;font-weight:bold;float:left;margin-right:8px;line-height:1;color:#ff6f61;}
+blockquote{border-left:5px solid #ff6f61;background:#fff2f0;padding:1rem 1.5rem;border-radius:10px;margin:2rem 0;font-style:italic;}
+
+/* ===== GALLERY ===== */
+.gallery-title{text-align:center;font-family:'Soria',serif;font-size:2.4rem;margin-bottom:2rem;}
+.gallery-container{max-width:900px;margin:auto;position:relative;padding:0 1rem;}
+.gallery{display:flex;overflow-x:auto;gap:1rem;scroll-behavior:smooth;padding-bottom:1rem;}
+.gallery img{width:350px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.1);transition:0.3s;}
+.gallery img:hover{transform:scale(1.05);}
+.gallery-button{position:absolute;top:50%;transform:translateY(-50%);background:white;border:none;font-size:2rem;padding:0.3rem 0.8rem;cursor:pointer;}
+.prev{left:-40px;} .next{right:-40px;}
+
+/* ===== FOOTER ===== */
+footer{text-align:center;padding:2rem;background:#2c3e50;color:white;margin-top:3rem;}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .hero-title{font-size:2.6rem;}
+  .story{margin:3rem auto;}
+  .gallery img{width:280px;}
+  .navbar ul{display:none;flex-direction:column;background:rgba(255,255,255,0.95);position:absolute;top:100%;right:0;width:200px;padding:1rem;border-radius:0 0 0 10px;}
+  .navbar ul.active{display:flex;}
+  .hamburger{display:block;}
+  .gallery-button.prev{left:0;}
+  .gallery-button.next{right:0;}
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar" id="navbar">
+  <div class="logo">This Guy Travels</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <ul id="navLinks">
+    <li><a href="../index.html">HOME</a></li>
+    <li><a href="../blogs.html">BLOGS</a></li>
+    <li><a href="../destinations.html">DESTINATIONS</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1 class="hero-title">SRI LANKA</h1>
+  <p>Beaches, tea plantations, and heritage sites — explore the Pearl of the Indian Ocean.</p>
+</section>
+
+<div class="story" id="story">
+  <p>Sri Lanka enchanted with lush hills, pristine beaches, and cultural landmarks. Each day felt like a new adventure surrounded by beauty.</p>
+  <p>From Sigiriya to the southern coast, the landscapes, wildlife, and people made every moment unforgettable.</p>
+  <blockquote>Sri Lanka is a paradise of culture, nature, and serenity.</blockquote>
+</div>
+
+<div class="gallery-title">Moments from Sri Lanka</div>
+<div class="gallery-container">
+  <button class="gallery-button prev" onclick="scrollGallery(-1)">❮</button>
+  <div class="gallery" id="gallery">
+    <img src="../images/srilanka1.jpg">
+    <img src="../images/srilanka2.jpg">
+    <img src="../images/srilanka3.jpg">
+    <img src="../images/srilanka4.jpg">
+    <img src="../images/srilanka5.jpg">
+  </div>
+  <button class="gallery-button next" onclick="scrollGallery(1)">❯</button>
+</div>
+
+<footer>
+  <p>&copy; <span id="year"></span> This Guy Travels</p>
+</footer>
+
+<script>
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+document.getElementById("year").textContent = new Date().getFullYear();
+const story = document.getElementById('story');
+window.addEventListener('scroll', () => { if(window.scrollY>100) story.classList.add('active'); else story.classList.remove('active'); });
+const gallery = document.getElementById('gallery');
+function scrollGallery(direction){ gallery.scrollBy({ left: direction*300, behavior:'smooth' }); }
+</script>
+</body>
+</html>

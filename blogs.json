@@ -9,19 +9,61 @@
     "title": "Exploring Meghalaya",
     "image": "images/meghalaya.jpg",
     "description": "Waterfalls, caves and scenic beauty.",
-    "link": "meghalaya.html"
+    "link": "all-blogs/meghalaya.html"
   },
   {
     "title": "Discovering Assam",
     "image": "https://picsum.photos/400/300?random=12",
     "description": "Tea gardens and rich culture.",
-    "link": "assam.html"
+    "link": "all-blogs/assam.html"
   },
   {
-    "title": "Himachal Escape",
+    "title": "Arunachal Escape",
     "image": "https://picsum.photos/400/300?random=13",
     "description": "Snow peaks and peaceful valleys.",
-    "link": "himachal.html"
+    "link": "all-blogs/arunachal.html"
+  }, 
+  {
+    "title": "Theyyam",
+    "image": "https://picsum.photos/400/300?random=14",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/theyyam.html"
+  }, 
+  {
+    "title": "Thailand",
+    "image": "https://picsum.photos/400/300?random=15",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/thailand.html"
+  },
+  {
+    "title": "Cambodia",
+    "image": "https://picsum.photos/400/300?random=16",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/cambodia.html"
+  },
+  {
+    "title": "Sri Lanka",
+    "image": "https://picsum.photos/400/300?random=17",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/srilanka.html"
+  },
+  {
+    "title": "Singapore",
+    "image": "https://picsum.photos/400/300?random=18",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/singapore.html"
+  },  
+  {
+    "title": "Hampi",
+    "image": "https://picsum.photos/400/300?random=19",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/hampi.html"
+  },
+  {
+    "title": "Ahobilam",
+    "image": "https://picsum.photos/400/300?random=20",
+    "description": "Snow peaks and peaceful valleys.",
+    "link": "all-blogs/ahobilam.html"
   }
 
 ]
