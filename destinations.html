@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>All Destinations - This Guy Travels</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
 
+<!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">This Guy Travels</div>
-  <ul>
-    <li><a href="index.html">HOME</a></li>
+  <div class="logo">
+    <a href="index.html" style="color:white;text-decoration:none;">
+      This Guy Travels
+    </a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+  <ul id="navLinks">
+    <li><a href="index.html#home">HOME</a></li>
     <li><a href="blogs.html">BLOGS</a></li>
     <li><a href="destinations.html">DESTINATIONS</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="index.html#itinerary">BUY ITINERARY</a></li>
   </ul>
 </nav>
 
+<!-- DESTINATIONS SECTION -->
 <section class="destinations">
   <h2>Destinations</h2>
   <div class="blog-grid" id="allDestinations"></div>
 </section>
 
-<script src="script.js">
-  function toggleMenu() {
-  document.getElementById('nav-links').classList.toggle('active');
-}
-</script>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>&copy; <span id="year"></span> This Guy Travels. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>

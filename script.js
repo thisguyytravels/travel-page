@@ -99,11 +99,11 @@ window.addEventListener("scroll", () => {
   if (!navbar) return;
 
   if (window.scrollY > 50) {
-    navbar.style.background = "rgba(0,0,0,0.6)";
+    navbar.style.background = "rgba(0,0,0,0.65)";
     navbar.style.backdropFilter = "blur(15px)";
   } else {
-    navbar.style.background = "rgba(255,255,255,0.15)";
-    navbar.style.backdropFilter = "blur(12px)";
+    navbar.style.background = "rgba(0,0,0,0.45)";
+    navbar.style.backdropFilter = "blur(15px)";
   }
 });
 
@@ -116,6 +116,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
   }
+  /* PREVENT PAST DATE SELECTION */
+const travelDateInput = document.querySelector('input[name="travelDates"]');
+if (travelDateInput) {
+  const today = new Date().toISOString().split("T")[0];
+  travelDateInput.min = today;
+}
+
   /* LOAD BLOG DATA */
   if (document.getElementById("homeBlogs"))
     loadJSON("blogs.json", "homeBlogs", 3);
