@@ -224,4 +224,23 @@ body { background: #f9f9f9; }
   margin-top:3rem;
 }
 
+.construction-banner {
+  position: sticky;
+  top: 0;
+  background: #ff6b6b;       /* bright attention color */
+  color: white;               /* readable text */
+  text-align: center;
+  padding: 0.8rem 1rem;      /* some space */
+  font-weight: 600;
+  font-size: 1rem;
+  z-index: 1100;             /* above navbar */
+  font-family: 'Poppins', sans-serif;
+}
+
+.construction-banner .close {
+  cursor: pointer;
+  margin-left: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
 

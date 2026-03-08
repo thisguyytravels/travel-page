@@ -6,163 +6,161 @@
 
 <title>Gallery - This Guy Travels</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<script>
-
-    function toggleMenu(){
-    document.getElementById("nav-links").classList.toggle("show");
-    }
-    
-</script>
 <style>
-/* NAVBAR */
+/* ===== GLOBAL ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#fefbf6;color:#333;line-height:1.7;}
+a{color:inherit;text-decoration:none;} /* remove underline and color change */
 
+/* ===== NAVBAR ===== */
 .navbar{
-position:fixed;
-top:0;
-width:100%;
-background:#111;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-z-index:1000;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 3rem;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(12px);
+  z-index:1000;
 }
-
-.logo{
-font-size:1.4rem;
-font-weight:600;
+.navbar.sticky{background:rgba(255,255,255,0.85);}
+.logo{font-weight:700;font-size:1.6rem;}
+.navbar ul{
+  list-style:none;
+  display:flex;
+  gap:2rem;
 }
+.navbar ul li a{font-weight:500;}
+.navbar ul li a:hover{color:#ff6f61;}
+.hamburger{display:none;font-size:1.6rem;cursor:pointer;}
 
-#nav-links{
-list-style:none;
-display:flex;
-gap:30px;
-}
-
-#nav-links a{
-color:white;
-text-decoration:none;
-font-weight:500;
-}
-
-#nav-links a:hover{
-opacity:0.7;
-}
-
-.hamburger{
-display:none;
-font-size:1.6rem;
-cursor:pointer;
-}
-
-/* MOBILE */
-
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-
-#nav-links{
-display:none;
-position:absolute;
-top:60px;
-right:0;
-background:#111;
-flex-direction:column;
-width:200px;
-padding:20px;
+  .navbar ul{
+    display:none;
+    flex-direction:column;
+    background:rgba(255,255,255,0.95);
+    position:absolute;
+    top:100%;
+    right:0;
+    width:200px;
+    padding:1rem;
+  }
+  .navbar ul.active{display:flex;}
+  .hamburger{display:block;}
 }
 
-#nav-links.show{
-display:flex;
-}
-
-.hamburger{
-display:block;
-}
-
-}
+/* ===== PAGE TITLE ===== */
 .title{
-text-align:center;
-font-size:2.5rem;
-margin-top:120px;
-margin-bottom:40px;
+  text-align:center;
+  font-size:2.5rem;
+  margin-top:120px;
+  margin-bottom:40px;
 }
 
+/* ===== CARDS ===== */
 .cards{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-padding:20px;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  flex-wrap:wrap;
+  padding:0 2rem 50px;
 }
-
 .card{
-width:320px;
-border-radius:15px;
-overflow:hidden;
-cursor:pointer;
-transition:0.4s;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  width:320px;
+  border-radius:15px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:0.4s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
-
 .card:hover{
-transform:scale(1.05);
-box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  transform:scale(1.05);
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
-
 .card img{
-width:100%;
-height:220px;
-object-fit:cover;
+  width:100%;
+  height:220px;
+  object-fit:cover;
 }
-
 .card h3{
-text-align:center;
-padding:15px;
+  text-align:center;
+  padding:15px;
+  font-weight:600;
+  color:#333;
 }
-
 </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
-<div class="logo">
-    <a href="/index.html" style="color:white;text-decoration:none;">This Guy Travels</a>
-</div>
-<div class="hamburger" onclick="toggleMenu()">☰</div>
-
-<ul id="navLinks">
-<li><a href="index.html">HOME</a></li>
-<li><a href="blogs.html">BLOGS</a></li>
-<li><a href="destinations.html">DESTINATIONS</a></li>
-<li><a href="gallery.html">GALLERY</a></li>
-<li><a href="index.html#itinerary">BUY ITINERARY</a></li>
-</ul>
+<nav class="navbar" id="navbar">
+  <div class="logo">This Guy Travels</div>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <ul id="navLinks">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="blogs.html">BLOGS</a></li>
+    <li><a href="destinations.html">DESTINATIONS</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="index.html#itinerary">BUY ITINERARY</a></li>
+  </ul>
 </nav>
 
 <h1 class="title">Travel Gallery</h1>
 
-<div class="cards">
-
-<a href="galleries/malaysia.html">
-<div class="card">
-<img src="images/kl.jpg">
-<h3>Malaysia</h3>
-</div>
-</a>
-
+<div class="cards" id="cardsContainer">
+  <!-- Cards will be populated dynamically -->
 </div>
 
 <!-- FOOTER -->
-<footer class="footer">
-<p>&copy; <span id="year"></span> This Guy Travels. All Rights Reserved.</p>
+<footer style="text-align:center; padding:2rem; background:#2c3e50; color:white;">
+  <p>&copy; <span id="year"></span> This Guy Travels. All Rights Reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// Navbar sticky + hamburger
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if(window.scrollY>50) navbar.classList.add('sticky');
+  else navbar.classList.remove('sticky');
+});
+function toggleMenu(){ document.getElementById('navLinks').classList.toggle('active'); }
+
+// Set year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// ===== DYNAMIC CARDS =====
+fetch('galleries.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('cardsContainer');
+    data.forEach(item => {
+      const a = document.createElement('a');
+      a.href = `galleries/${item.title.toLowerCase()}.html`;
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const img = document.createElement('img');
+      img.src = item.image;
+
+      const h3 = document.createElement('h3');
+      h3.textContent = item.title;
+
+      card.appendChild(img);
+      card.appendChild(h3);
+      a.appendChild(card);
+      container.appendChild(a);
+    });
+  })
+  .catch(err => console.error('Error loading gallery:', err));
+</script>
 
 </body>
 </html>

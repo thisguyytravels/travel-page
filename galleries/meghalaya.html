@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malaysia Gallery - This Guy Travels</title>
+<title>Meghalaya Gallery - This Guy Travels</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -13,7 +13,6 @@
 body{background:#fefbf6;color:#333;line-height:1.7;overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
 img{user-select:none;display:block;}
-@font-face { font-family: 'Soria'; src: url('../fonts/soria.ttf') format('opentype'); }
 
 /* ===== NAVBAR ===== */
 .navbar{
@@ -150,16 +149,15 @@ footer{
   </ul>
 </nav>
 
-<h1>Malaysia Photo Gallery</h1>
+<h1>Meghalaya Photo Gallery</h1>
 
 <div class="gallery-container">
   <div class="gallery" id="gallery">
-    <img src="../images/kl.jpg" loading="lazy">
-    <img src="../images/penang.jpg" loading="lazy">
-    <img src="../images/langkawi.jpg" loading="lazy">
-    <img src="../images/batu.jpg" loading="lazy">
-    <img src="../images/bridge.jpg" loading="lazy">
-    <img src="../images/genting.jpg" loading="lazy">
+    <img src="../images/meghalaya1.jpg" loading="lazy">
+    <img src="../images/meghalaya2.jpg" loading="lazy">
+    <img src="../images/meghalaya3.jpg" loading="lazy">
+    <img src="../images/meghalaya4.jpg" loading="lazy">
+    <img src="../images/meghalaya5.jpg" loading="lazy">
   </div>
 </div>
 
@@ -203,7 +201,7 @@ popup.addEventListener("click", (e)=>{
   if(e.target!==popupImg) popup.classList.remove("active");
 });
 
-/* Keyboard navigation for laptop only */
+/* Keyboard and arrow navigation for laptop only */
 document.addEventListener("keydown", e=>{
   if(!popup.classList.contains("active")) return;
   if(e.key==="ArrowRight" && window.innerWidth>768){
@@ -215,6 +213,8 @@ document.addEventListener("keydown", e=>{
     popupImg.src = images[currentIndex].src;
   }
 });
+
+/* Mobile swipe / manual scroll works naturally */
 </script>
 
 </body>
