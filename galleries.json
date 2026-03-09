@@ -1,17 +1,22 @@
 [
     {
       "title": "Malaysia",
-      "image": "https://picsum.photos/400/300?random=21",
+      "image": "images/malaysia/10.jpg",
       "link": "galleries/malaysia.html"
     },
     {
       "title": "Meghalaya",
-      "image": "https://picsum.photos/400/300?random=22",
+      "image": "images/meghalaya/2.jpg",
       "link": "galleries/meghalaya.html"
-
     },
     {
-      "title": "Switzerland",
-      "image": "https://picsum.photos/400/300?random=23"
+      "title": "Arunachal",
+      "image": "images/arunachal/1.jpg",
+      "link": "galleries/arunachal.html"
+    },
+    {
+        "title": "Assam",
+        "image": "images/assam/8.jpg",
+        "link": "galleries/assam.html"
     }
   ]
