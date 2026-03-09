@@ -105,7 +105,6 @@ let currentIndex = 0;
 
 function showPopup(index){
   currentIndex = index;
-  if(window.innerWidth<=768) return;
   popupImg.src = images[currentIndex].src;
   popup.classList.add("active");
 }
